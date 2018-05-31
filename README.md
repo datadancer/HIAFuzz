@@ -1,7 +1,7 @@
 # HIAFuzz
 Hybrid Interface Aware Fuzz for Android Kernel Drivers
 ===================
-This tool is for
+This tool is for recovering ioctl interfaces in kernel drivers, which is used in kernel fuzzing.
 ### Tested on
 Ubuntu 16.04 LTS
 There are two main components of `HIAFuzz`: **Interface Recovery** and **Fuzzing Engine**
@@ -12,7 +12,7 @@ The interface recovery mechanism is based on gdb analysis on kernel image vmlinu
 ### 1.1 Setup
 This tool depends on pygdbmi, which is used for parsing gdb machine interface output with Python.
 ```
-pip install pygdbmi
+pip3 install pygdbmi
 ```
 
 ### 1.2 Build the Kernel
@@ -28,7 +28,7 @@ Then normal steps are taken to build the kernel. Ex:
 make defconfig
 make -j8 O=out ARCH=arm64
 ```
-After vmlinux builded, the debug information is in the .debug section.
+After vmlinux builded, the debug information is in the .debug section. The option -j8 makes 8 threads working in parallel, and in few minutes the kernel will be build.
 
 ### 1.3 Running
 Use the following command to run this tool.
@@ -55,7 +55,7 @@ The fuzzing tool is Mango Fuzz from [difuze](https://github.com/ucsb-seclab/difu
 ## 3. Example
 
 Now, we will show an example from the point where you have kernel sources to the point of getting Interface Recovery results.
-Download and extract the kernel source of Kindle HDX 3rd kernel from [kindle_fire_7inch_4.5.5.3.tar.bz2]().
+Download and extract the kernel source of Huawei Mate 9 kernel from [MHA-NG_EMUI5.0_opensource.tar.gz](http://download-c1.huawei.com/download/downloadCenter?downloadId=95352&version=391424&siteCode=worldwide) from [Huawei Open Source Release Center](https://consumer.huawei.com/en/opensource/).
 Lets say you extracted the above file in a folder called: ~/Code_Opensource
 ### 3.1 Build the kernel
 Use the command to replace -g to -g3.
