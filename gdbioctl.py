@@ -1,6 +1,6 @@
 #from elftools.elf.elffile import ELFFile
 import os, re, time
-import traceback
+import argparse
 from utils import base_types
 
 from cparser import handle_subprogram, get_variable_type
@@ -151,47 +151,25 @@ def assign_macros(gdbmi, cmdstypes):
     return cmdstypes
     
 def main():
-    target = 'mate9'
+    parser = argparse.ArgumentParser()
+    #Ex: python gdbioctl.py -v /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out2/vmlinux -f /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out/kindle7_device_ioctl.txt
+    #parser.add_argument('-o', action='store', dest='ioctl_out', help='Destination directory where all the generated interface should be stored.')
+    parser.add_argument('-v', action='store', dest='vmlinux', help='Path of the vmlinux image. The recovered ioctls are stored in this folder.')
+    parser.add_argument('-f', action='store', dest='device_ioctl_file', help='The file that conations ioctl and corresponding device file names, Ex: /dev/alarm alarm_ioctl.')
     olddir = os.getcwd()
 
-    if target == 'kindle7':
-        vmlinux = '/workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out2/vmlinux'
-        device_ioctl_file = '/workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out/kindle7_device_ioctl.txt'
-    elif target == 'mate9':
-        vmlinux = '/workspace/difuze/AndroidKernels/huawei/mate9/fuben/Code_Opensource/out/vmlinux'
-        device_ioctl_file = '/workspace/difuze/AndroidKernels/ioctldev/mate9_device_ioctl.txt'
-    elif target == 'P9':
-        vmlinux = '/workspace/difuze/AndroidKernels/huawei/P9/out/vmlinux'
-        device_ioctl_file = '/workspace/difuze/AndroidKernels/huawei/P9/out/P9_device_ioctl.txt'
-    elif target == 'P10':
-        vmlinux = '/workspace/difuze/AndroidKernels/huawei/P10/outO1g3/vmlinux'
-        device_ioctl_file = '/workspace/difuze/AndroidKernels/huaweiP10/outO1g3/P10_device_ioctl.txt'
-    elif target == 'honor8':
-        vmlinux = '/workspace/difuze/AndroidKernels/huawei/honor8/outO1g3/vmlinux'
-        device_ioctl_file = '/workspace/difuze/AndroidKernels/huawei/honor8/honor8_device_ioctl.txt'
-    elif target == 'xperia': # insmod: failed to load hello.ko: Exec format error
-        vmlinux = '/workspace/difuze/AndroidKernels/sony/kernel/msm-3.18/outO1g3/vmlinux'
-        device_ioctl_file = '/workspace/difuze/AndroidKernels/sony/kernel/msm-3.18/outO1g3/xperia_device_ioctl.txt'
-        os.chdir('/workspace/difuze/AndroidKernels/sony/kernel/msm-3.18/outO1g3/')
-    if DEBUG:
-        vmlinux = '/workspace/difuze/dwarf/test/test'
-    print('%s:%s' % (device_ioctl_file, 5))
+    parsed_args = parser.parse_args()
+    print('%s:%s' % (parsed_args.device_ioctl_file, 5))
     #Before make vmlinux, these steps should be taken.
     '''
-    for f in `find . -name Makefile`; do sed -i "s/-g /-g3 /g" $f;done
+    for f in `find . -name Makefile`; do sed -i "s/-g /-g3 /g" $f; done
     for f in `find . -name Makefile`; do sed -i "s/-g$/-g3/g" $f; done
-    for f in `find . -name Makefile`; do sed -i "s/-O2/-O1 /g" $f; done
-    for f in `find . -name Makefile`; do sed -i "s/-Os/-O1 /g" $f; done
-    for f in `find . -name Makefile`; do sed -i "s/-O3/-O1 /g" $f; done
-    
     With make, add this CONFIG_DEBUG_SECTION_MISMATCH=y flag to xxxdeconfig.
     '''
-
-
     #Add flag: -fno-inline-functions-called-once
 
-    outdir = os.path.join(os.path.dirname(vmlinux), 'ioctl_finder_out_filtered')
-    outdir2 = os.path.join(os.path.dirname(vmlinux), 'ioctl_preprocessed_out')
+    outdir = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_finder_out_filtered')
+    outdir2 = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_preprocessed_out')
 
     if not os.path.exists(outdir):
         os.mkdir(outdir)
@@ -200,12 +178,8 @@ def main():
 
     ioctl_set = []
     #ff = open('/workspace/difuze/AndroidKernels/huawei/mate9/fuben/Code_Opensource/out/ioctls', 'r')
-    if True:
-        ioctl_set = ['/dev/cahub chb_ioctl']
-    else:
-        ff = open(device_ioctl_file, 'r')
+    with open(parsed_args.device_ioctl_file, 'r') as ff:
         ioctl_set = [x.strip() for x in ff.readlines()]
-        ff.close()
 
     device_dict = {}
     ioctl_list = []
@@ -228,11 +202,10 @@ def main():
         print('handling %s' % aioctl)
         ioctl_set.remove(aioctl)
         gdbmi = GdbController()
-        response = gdbmi.write('file %s' % vmlinux)
+        response = gdbmi.write('file %s' % parsed_args.vmlinux)
         sourcefile_line_dict = get_line_file_for_ioctl_function_from_gdb(gdbmi, aioctl, allow_multi= True)
         item_count = 0
         for sourcefile, line in sourcefile_line_dict.items():
-
             if sourcefile == '':
                 continue
             #if sourcefile[0] != '/':
@@ -276,6 +249,7 @@ def main():
         print("%d ioctl functions are not found." % len(ioctl_set))
         print(ioctl_set)
     os.chdir(olddir)
+    print('Recovered interfaces are sotred in:\n%s\n%s' % (outdir, outdir2))
     print("Goodbye!")
 
 if __name__ == "__main__":
