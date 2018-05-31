@@ -52,5 +52,36 @@ After a few minutes the recovered interface are in the folder that -v option set
 ## 2. Fuzzing
 The fuzzing tool is Mango Fuzz from [difuze](https://github.com/ucsb-seclab/difuze).
 
+## 3. Example
+
+Now, we will show an example from the point where you have kernel sources to the point of getting Interface Recovery results.
+Download and extract the kernel source of Kindle HDX 3rd kernel from [kindle_fire_7inch_4.5.5.3.tar.bz2]().
+Lets say you extracted the above file in a folder called: ~/Code_Opensource
+### 3.1 Build the kernel
+Use the command to replace -g to -g3.
+
+```
+cd ~/Code_Opensource/kernel
+for f in `find . -name Makefile`; do sed -i "s/-g /-g3 /g" $f; done
+for f in `find . -name Makefile`; do sed -i "s/-g$/-g3/g" $f; done
+#export PATH=$PATH:$(android platform directory you download)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
+export PATH=$PATH:/workspace/aosp/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc
+export CROSS_COMPILE=aarch64-linux-android-
+mkdir ../out
+make ARCH=arm64 O=../out merge_hi3660_defconfig
+make ARCH=arm64 O=../out -j8
+```
+After a few minutes, the vmlinux of Mate 9 is generated in ../out/.
+
+### 3.2 Running
+Use mate9_device_ioctl.txt provided by this project as input.
+```
+python3 gdbioctl.py -v ~/Code_Opensource/out/vmlinux -f /path/to/mate9_device_ioctl.txt
+```
+Tow folders are created in ~/Code_Opensource/out/ called ioctl_finder_out and ioctl_preprocessed_out. All interface recovered are located in ioctl_finder_out and related struct, union, type def and etc. are in ioctl_preprocessed_out.
+
+
+
+
 
 
