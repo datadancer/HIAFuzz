@@ -152,7 +152,8 @@ def assign_macros(gdbmi, cmdstypes):
     
 def main():
     parser = argparse.ArgumentParser()
-    #Ex: python gdbioctl.py -v /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out2/vmlinux -f /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out/kindle7_device_ioctl.txt
+    # Ex: python3 gdbioctl.py -v /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out2/vmlinux -f /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out/kindle7_device_ioctl.txt
+    # Ex: python3 gdbioctl.py -v /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out2/vmlinux -f /workspace/difuze/AndroidKernels/kindle_fire_7/WORKSPACE_DIR/out/kindle7_device_ioctl.txt
     #parser.add_argument('-o', action='store', dest='ioctl_out', help='Destination directory where all the generated interface should be stored.')
     parser.add_argument('-v', action='store', dest='vmlinux', help='Path of the vmlinux image. The recovered ioctls are stored in this folder.')
     parser.add_argument('-f', action='store', dest='device_ioctl_file', help='The file that conations ioctl and corresponding device file names, Ex: /dev/alarm alarm_ioctl.')
@@ -168,7 +169,7 @@ def main():
     '''
     #Add flag: -fno-inline-functions-called-once
 
-    outdir = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_finder_out_filtered')
+    outdir = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_finder_out')
     outdir2 = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_preprocessed_out')
 
     if not os.path.exists(outdir):
