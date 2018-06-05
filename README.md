@@ -118,7 +118,7 @@ This will continue looping over the driver files, randomly switching between the
 Now, we will show an example from the point where you have kernel sources to the point of getting Interface Recovery results.
 Download and extract the kernel source of Huawei Mate 9 kernel from [MHA-NG_EMUI5.0_opensource.tar.gz](http://download-c1.huawei.com/download/downloadCenter?downloadId=95352&version=391424&siteCode=worldwide) from [Huawei Open Source Release Center](https://consumer.huawei.com/en/opensource/).
 Lets say you extracted the above file in a folder called: ~/Code_Opensource
-### 3.1 Build the kernel
+### 4.1 Build the kernel
 Use the command to replace -g to -g3.
 
 ```
@@ -134,7 +134,7 @@ make ARCH=arm64 O=../out -j8
 ```
 After a few minutes, the vmlinux of Mate 9 is generated in ../out/.
 
-### 3.2 Running
+### 4.2 Running
 Use mate9_device_ioctl.txt provided by this project as input.
 ```
 python3 gdbioctl.py -v ~/Code_Opensource/out/vmlinux -f ../DriversDevices/mate9_device_ioctl.txt
