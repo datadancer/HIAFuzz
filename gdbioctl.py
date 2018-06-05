@@ -168,6 +168,7 @@ def main():
     '''
     #Add flag: -fno-inline-functions-called-once
 
+    os.chdir(os.path.dirname(parsed_args.vmlinux))
     outdir = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_finder_out_filtered')
     outdir2 = os.path.join(os.path.dirname(parsed_args.vmlinux), 'ioctl_preprocessed_out')
 
