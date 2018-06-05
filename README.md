@@ -49,7 +49,7 @@ python3 gdbioctl.py -v /path/to/kindle/vmlinux -f /path/to/kindle7_device_ioctl.
 ```
 After a few minutes the recovered interface are in the folder that -v option set.
 
-## Post Processing
+## 2. Post Processing
 
 The recovered interfaces are described in text. They should be parsed in to structured xml document. Use the scripts in post_processing to do this job.
 ```
