@@ -1,0 +1,5 @@
+These page show the practical CVEs that Found.
+* CVE-2018-11023, CVE-2018-11024
+I reported these bugs to Security@amazon.com on On 5/11/2018 and now I have been told they have repaired the bugs and the details can be published. However,  Amazon does not have an advisory page at the moment. I think it is a must to list the detailed infomation here.
+Time Line
+* 
