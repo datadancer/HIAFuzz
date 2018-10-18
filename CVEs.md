@@ -885,7 +885,7 @@ Kindle kernel (version 4.5.5.3 for kindle fire hdx 3rd):
 
 Re: Bug Report for Kindle Fire HD 3rd
 
-"Dalci, Eric" <edalci@amazon.com>
+"Eric" <###@amazon.com>
 收件人：
 lsb <datadancer@163.com>
 时   间：
@@ -917,7 +917,7 @@ Thanks!
 
 From: lsb <datadancer@163.com>
 Date: Wednesday, September 19, 2018 at 9:03 PM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -955,7 +955,7 @@ Thank you
 
 From: lsb <datadancer@163.com>
 Date: Sunday, September 9, 2018 at 8:27 PM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -994,7 +994,7 @@ Thanks
 
 From: lsb <datadancer@163.com>
 Date: Saturday, August 11, 2018 at 5:33 PM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -1046,7 +1046,7 @@ Thanks
 
  
 
-From: "Dalci, Eric" <edalci@amazon.com>
+From: "Eric" <###@amazon.com>
 Date: Monday, July 23, 2018 at 6:28 PM
 To: lsb <datadancer@163.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
@@ -1071,7 +1071,7 @@ Thanks
 
  
 
-From: "Dalci, Eric" <edalci@amazon.com>
+From: "Eric" <###@amazon.com>
 Date: Monday, July 9, 2018 at 6:14 PM
 To: lsb <datadancer@163.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
@@ -1094,7 +1094,7 @@ Eric
 
 From: lsb <datadancer@163.com>
 Date: Thursday, June 28, 2018 at 7:49 PM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -1142,7 +1142,7 @@ Thanks!
 
 From: lsb <datadancer@163.com>
 Date: Monday, June 25, 2018 at 2:16 AM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -1188,7 +1188,7 @@ Thank you
 
 From: <detected-as-spam@amazon.com> on behalf of lsb <datadancer@163.com>
 Date: Thursday, June 7, 2018 at 5:02 AM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: [SPAM][100%] Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -1230,7 +1230,7 @@ Regards
 
 From: lsb <datadancer@163.com>
 Date: Tuesday, May 29, 2018 at 9:57 AM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -1302,7 +1302,7 @@ I will get back to you by Monday. We finished the assessment.
 
 From: lsb <datadancer@163.com>
 Date: Thursday, May 24, 2018 at 2:57 AM
-To: "Dalci, Eric" <edalci@amazon.com>
+To: "Eric" <###@amazon.com>
 Subject: Re:Re: Bug Report for Kindle Fire HD 3rd
 
  
@@ -1332,7 +1332,7 @@ Descriptions and CVE IDs are in the attachment.
 
 
 
-At 2018-05-16 07:11:00, "Dalci, Eric" <edalci@amazon.com> wrote:
+At 2018-05-16 07:11:00, "Eric" <###@amazon.com> wrote:
 
 
 
@@ -1374,7 +1374,7 @@ Shuaibing Lu
  
 
 
-At 2018-05-12 01:42:31, "Dalci, Eric" <edalci@amazon.com> wrote:
+At 2018-05-12 01:42:31, "Eric" <###@amazon.com> wrote:
 
 >Hi Lu,
 
