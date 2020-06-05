@@ -11,7 +11,7 @@ These page show the details of the vulnerability found in 360 Phone N6 Pro. I re
 * Name: 360 Phone N6 Pro
 * Model: 1801-A01
 * Date: 2018-10-15
-* Reporter: Shuaibing Lu
+* Reporter: Shuaibing Lu, Liang Ming
 * Vendor: http://www.qiku.com/product/n6p/index.html
 * Product Link: http://www.qiku.com/product/n6p/index.html
 * Android Version: 7.1.1

@@ -12,7 +12,7 @@ These page show the practical CVEs that Found. I reported these bugs to Security
  
 * Name: Amazon Kindle Fire HD (3rd Generation) Kernel DoS
 * Date: 2018-10-10
-* Reporter: Shuaibing Lu
+* Reporter: Shuaibing Lu, Liang Ming
 * Vendor: http://www.amazon.com/
 * Software Link: https://fireos-tablet-src.s3.amazonaws.com/46sVcHzumgrjpCXPHw6oygKVmw/kindle_fire_7inch_4.5.5.3.tar.bz2
 * Version: Fire OS 4.5.5.3
@@ -255,7 +255,7 @@ Kindle kernel (version 4.5.5.3 for kindle fire hdx 3rd):
  
 * Name: Amazon Kindle Fire HD (3rd Generation) Kernel DoS
 * Date: 2018-10-10
-* Reporter: Shuaibing Lu
+* Reporter: Shuaibing Lu, Liang Ming
 * Vendor: http://www.amazon.com/
 * Software Link: https://fireos-tablet-src.s3.amazonaws.com/46sVcHzumgrjpCXPHw6oygKVmw/kindle_fire_7inch_4.5.5.3.tar.bz2
 * Version: Fire OS 4.5.5.3
@@ -1369,7 +1369,7 @@ To reduce your work, I have analyzed the bug of twl6030_gpadc_ioctl. The kernel 
  
 
 Yours
-Shuaibing Lu
+Shuaibing Lu, Liang Ming
 
  
 
